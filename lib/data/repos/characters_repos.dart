@@ -5,7 +5,7 @@ class CharactersRepos {
   final CharacterWebServices characterWebServices;
 
   CharactersRepos(this.characterWebServices);
-  Future<List<dynamic>> getAllCharacter() async {
+  Future<List<CharacterModel>> getAllCharacter() async {
     final characters = await characterWebServices.getAllCharacter();
     return characters
         .map((character) => CharacterModel.fromjSon(character))
