@@ -1,3 +1,4 @@
+// ignore: depend_on_referenced_packages
 import 'package:bloc/bloc.dart';
 import 'package:ui/data/models/character_model.dart';
 import 'package:ui/data/repos/characters_repos.dart';
