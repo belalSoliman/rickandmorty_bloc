@@ -19,7 +19,7 @@ class _CharactersScreenState extends State<CharactersScreen> {
   void initState() {
     // TODO: implement initState
     super.initState();
-    allCharacter = BlocProvider.of<CharactersCubit>(context).getAllCharacters();
+    BlocProvider.of<CharactersCubit>(context).getAllCharacters();
   }
 
   Widget buildBlockWidget() {
@@ -55,16 +55,19 @@ class _CharactersScreenState extends State<CharactersScreen> {
   Widget builCharactersList() {
     return GridView.builder(
         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-          crossAxisCount: 2,
+          crossAxisCount: 3,
           childAspectRatio: 2 / 3,
           crossAxisSpacing: 1,
           mainAxisSpacing: 1,
         ),
         shrinkWrap: true,
+        itemCount: allCharacter.length,
         padding: EdgeInsets.zero,
         physics: const ClampingScrollPhysics(),
         itemBuilder: (ctx, index) {
-          return CharactersItem();
+          return CharactersItem(
+            characterModel: allCharacter[index],
+          );
         });
   }
 

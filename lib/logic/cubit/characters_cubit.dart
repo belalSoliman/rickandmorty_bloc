@@ -6,7 +6,7 @@ import 'package:ui/logic/cubit/characters_state.dart';
 
 class CharactersCubit extends Cubit<CharactersState> {
   final CharactersRepos repos;
-  late List<CharacterModel> charts;
+  List<CharacterModel> charts = [];
   CharactersCubit(this.repos) : super(CharactersInitial());
 
   List<CharacterModel> getAllCharacters() {

@@ -5,8 +5,9 @@ class CharacterModel {
   late String species;
   late String gender;
   late String image;
-  late List<dynamic> location;
-  late List<dynamic> apperanceOfSesson;
+  late Map<String, dynamic> location; // Changed to Map<String, dynamic>
+  late List<String> appearanceOfSeason; // Changed to List<String>
+
   CharacterModel.fromjSon(Map<String, dynamic> json) {
     id = json["id"];
     name = json["name"];
@@ -14,8 +15,9 @@ class CharacterModel {
     species = json["species"];
     gender = json["gender"];
     image = json["image"];
-    location = json["location"];
-    apperanceOfSesson = json["episode"];
-    id = json["id"];
+    location = Map<String, dynamic>.from(
+        json["location"]); // Ensure this is a Map<String, dynamic>
+    appearanceOfSeason =
+        List<String>.from(json["episode"]); // Ensure this is a List<String>
   }
 }
